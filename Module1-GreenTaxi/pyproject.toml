@@ -1,18 +1,19 @@
 [project]
 name = "Module1-GreenTaxi"
 version = "0.1.0"
+description = "Containerized data engineering pipeline"
 requires-python = ">=3.13"
+
 dependencies = [
   "pandas",
   "pyarrow",
   "sqlalchemy",
   "psycopg2-binary",
-  "python-dotenv"
 ]
 
-[dependency-groups]
-dev = []
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.uv]
+# optional, but nice to be explicit
+dev-dependencies = [
+  "pytest",
+  "ruff",
+]
