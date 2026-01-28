@@ -53,6 +53,9 @@ services:
 
     command: ["python", "-m", "pipeline.main"]
 
+    volumes:
+    - ./:/app
+
 networks:
   default:
     name: green_taxi_network
