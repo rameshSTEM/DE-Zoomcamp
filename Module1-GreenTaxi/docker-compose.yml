@@ -39,6 +39,9 @@ services:
         condition: service_healthy
 
   module1-greentaxi:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: module1-greentaxi:latest
     container_name: module1-greentaxi
     restart: "no"
@@ -51,10 +54,11 @@ services:
       postgres:
         condition: service_healthy
 
-    command: ["python", "-m", "pipeline.main"]
+    command: tail -f /dev/null
 
     volumes:
-    - ./:/app
+      - ./:/app:cached
+
 
 networks:
   default:
