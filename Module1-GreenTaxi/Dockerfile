@@ -20,10 +20,12 @@ WORKDIR /app
 
 # Install deps first (Docker cache win)
 COPY pyproject.toml uv.lock ./
-RUN uv pip install --system --frozen
+
+#ignore the [dependency-groups] dev section
+RUN uv sync --frozen --no-cache --no-install-project --no-dev
 
 # Copy source code
 COPY src ./src
 
 # Run the pipeline
-CMD ["python", "-m", "pipeline.main"]
+CMD ["uv", "run", "python", "src/pipeline.py"]

@@ -9,11 +9,12 @@ dependencies = [
   "pyarrow",
   "sqlalchemy",
   "psycopg2-binary",
+  "requests>=2.32.5",
 ]
 
-[tool.uv]
-# optional, but nice to be explicit
-dev-dependencies = [
-  "pytest",
-  "ruff",
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff",
+    "black"
 ]
