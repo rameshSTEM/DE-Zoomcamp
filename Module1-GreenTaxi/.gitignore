@@ -1,0 +1,29 @@
+# --- Python & uv ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.python-version
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.uv/
+
+# --- Database & Storage ---
+# VERY IMPORTANT: Never commit your local DB data
+postgres-data/
+data/
+
+# --- Environment & Secrets ---
+.env
+.env.local
+
+# --- IDE & System ---
+.vscode/
+.devcontainer/local-features/
+.DS_Store
+Thumbs.db
+
+# --- Docker ---
+# Usually, we keep docker files in git, but ignore local overrides
+docker-compose.override.yml
