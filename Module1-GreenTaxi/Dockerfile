@@ -9,7 +9,6 @@ ENV PATH="/root/.local/bin:$PATH"
 # Minimal system deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
-    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv
@@ -22,13 +21,11 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 #ignore the [dependency-groups] dev section
-RUN uv sync --frozen --no-cache --no-install-project --no-dev
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-install-project --no-dev
 
 # Copy source code
 COPY src ./src
-
-# Make uv explicitly executable
-RUN chmod +x /usr/local/bin/uv
 
 # Run the pipeline
 CMD ["uv", "run", "python", "src/pipeline.py"]
