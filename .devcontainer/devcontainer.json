@@ -1,0 +1,21 @@
+{
+  "name": "DE-Pipeline-Dev",
+
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "module1-greentaxi",
+  "workspaceFolder": "/app",
+  "features": {
+        "ghcr.io/devcontainers/features/git:1": {} // Adds Git automatically
+    },
+    "postCreateCommand": "uv sync",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ]
+    }
+  }
+}
