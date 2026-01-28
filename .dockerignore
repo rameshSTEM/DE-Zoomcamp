@@ -1,0 +1,40 @@
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments (you’re using uv, still safe)
+.venv/
+
+# VS Code / IDE configs
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Environment & secrets
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker Compose overrides (local only)
+docker-compose.override.yml
+
+# Local database and data
+postgres-data/
+data/
+
+# Python tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Logs / temp files
+*.log
+tmp/
