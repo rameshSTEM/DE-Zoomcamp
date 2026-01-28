@@ -27,5 +27,8 @@ RUN uv sync --frozen --no-cache --no-install-project --no-dev
 # Copy source code
 COPY src ./src
 
+# Make uv explicitly executable
+RUN chmod +x /usr/local/bin/uv
+
 # Run the pipeline
 CMD ["uv", "run", "python", "src/pipeline.py"]
